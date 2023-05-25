@@ -6,4 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainMenu">
 
+    <ImageView
+        android:id="@+id/imagem_capa"
+        android:layout_width="413dp"
+        android:layout_height="110dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/galao_agua" />
+
+    <TextView
+        android:id="@+id/supplier_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zé da Água"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagem_capa"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <ImageButton
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/imagem_capa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imagem_capa"
+        app:layout_constraintVertical_bias="0.116"
+        app:srcCompat="@drawable/add_button" />
+
+    <TextView
+        android:id="@+id/legenda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apenas galão"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/supplier_name"
+        app:layout_constraintVertical_bias="0.023" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
