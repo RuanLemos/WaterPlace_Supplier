@@ -97,7 +97,7 @@ public class Register extends AppCompatActivity {
 
                         //Gera um UID para o endereço dentro do documento do fornecedor
                         //String addressUid = usersRef.child(uid).child("Address").push().getKey();
-
+                        System.out.println(uid);
                         // Salva o fornecedor com o UID como identificador do documento
                         suppliersRef.child(uid).setValue(supplier)
                                 .addOnCompleteListener(saveTask -> {
