@@ -25,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.List;
 
 import waterplace.finalproj.R;
+import waterplace.finalproj.model.Supplier;
 
 public class Login extends AppCompatActivity {
     private ImageButton bt;
@@ -94,6 +95,7 @@ public class Login extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if(snapshot.exists()) {
+                                Supplier.setInstance(snapshot);
                                 goMenu();
                             } else {
                                 Toast.makeText(Login.this, "Conta inválida para esta aplicação", Toast.LENGTH_SHORT).show();
