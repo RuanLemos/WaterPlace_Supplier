@@ -5,15 +5,4 @@
         <item name="chipStrokeWidth">2dp</item> <!-- Largura da borda -->
     </style>
 
-<style name="Ligacoes_Habilitadas" parent="Widget.MaterialComponents.Chip.Choice">
-        <item name="chipStrokeColor">#C0FF8E</item> <!-- Cor da borda -->
-        <item name="chipStrokeWidth">1dp</item> <!-- Largura da borda -->
-        <item name="chipBackgroundColor">@android:color/white</item>
-    </style>
-
-<style name="Ligacoes_Desabilitadas" parent="ChipWithBorder">
-    <item name="chipStrokeColor">#000000</item> <!-- Cor da borda -->
-    <item name="chipStrokeWidth">1dp</item> <!-- Largura da borda -->
-    <item name="chipBackgroundColor">#DF6666</item>
-</style>
 </resources>
