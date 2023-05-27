@@ -118,7 +118,7 @@
         app:srcCompat="@drawable/add_button" />
 
     <com.google.android.material.chip.Chip
-        android:id="@+id/chip2"
+        android:id="@+id/alterar_capa"
         style="@style/ChipWithBorder"
         android:layout_width="178dp"
         android:layout_height="36dp"
@@ -133,12 +133,14 @@
 
     <com.google.android.material.chip.Chip
         android:id="@+id/ligacoes"
-        style="@style/Ligacoes_Habilitadas"
+        style="@style/ChipWithBorder"
         android:layout_width="340dp"
         android:layout_height="58dp"
         android:text="Ligações habilitadas"
         android:textSize="20dp"
         android:clickable="true"
+        app:chipBackgroundColor="@color/white"
+        app:chipStrokeColor="@android:color/holo_green_light"
         app:chipIcon="@drawable/phone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
