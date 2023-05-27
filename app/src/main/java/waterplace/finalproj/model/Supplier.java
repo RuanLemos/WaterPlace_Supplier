@@ -10,8 +10,6 @@ public class Supplier {
     private String phone;
     private List<String> products;
 
-    private List<String> requests;
-
     // Cria um construtor com o padrão singleton
     private static Supplier instance;
 
@@ -23,6 +21,10 @@ public class Supplier {
         this.name = dataSnapshot.child("name").getValue().toString();
         this.cnpj = Integer.parseInt(dataSnapshot.child("cnpj").getValue().toString());
         this.phone = dataSnapshot.child("phone").getValue().toString();
+        if (dataSnapshot.child("products").exists()){
+            this.products = (List<String>) dataSnapshot.child("products").getValue();
+        }
+
     }
 
     public static Supplier getInstance(){

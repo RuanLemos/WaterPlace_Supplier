@@ -23,7 +23,7 @@
         android:id="@+id/supplier_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Zé da Água"
+        android:text="Nome do fornecedor"
         android:textColor="@color/black"
         android:textSize="34dp"
         android:textStyle="bold"
@@ -119,47 +119,35 @@
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip2"
+        style="@style/ChipWithBorder"
         android:layout_width="178dp"
         android:layout_height="36dp"
         android:text="Alterar foto de destaque"
-        style="@style/ChipWithBorder"
         app:chipBackgroundColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imagem_capa"
-        app:layout_constraintVertical_bias="0.079" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.018"
-        app:srcCompat="@drawable/back" />
+        app:layout_constraintVertical_bias="0.094" />
 
     <com.google.android.material.chip.Chip
-        android:id="@+id/chip3"
-        style="@style/ChipWithBorder"
+        android:id="@+id/ligacoes"
+        style="@style/Ligacoes_Habilitadas"
         android:layout_width="340dp"
         android:layout_height="58dp"
         android:text="Ligações habilitadas"
         android:textSize="20dp"
-        app:chipBackgroundColor="@color/white"
+        android:clickable="true"
         app:chipIcon="@drawable/phone"
-        app:chipStrokeColor="#C0FF8E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imagem_capa"
-        app:layout_constraintVertical_bias="0.423" />
+        app:layout_constraintVertical_bias="0.423"
+        />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

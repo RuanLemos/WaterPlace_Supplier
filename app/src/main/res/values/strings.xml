@@ -20,4 +20,6 @@
     <string name="Complemento">Complemento</string>
     <string name="TxtExplica">Por favor, indique o seu endereço de email. Você receberá um link para criar uma nova senha.</string>
     <string name="TxtConfirm">Um e-mail para redefinir a sua senha foi enviado!</string>
+    <string name="ligacoes_habilitadas">Ligações habilitadas</string>
+    <string name="ligacoes_desabilitadas">Ligações desabilitadas</string>
 </resources>
