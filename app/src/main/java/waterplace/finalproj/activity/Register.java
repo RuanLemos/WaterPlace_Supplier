@@ -12,9 +12,6 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 import android.widget.Button;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import waterplace.finalproj.R;
 import waterplace.finalproj.model.Address;
 import waterplace.finalproj.model.Supplier;
+import waterplace.finalproj.util.GeocodeUtil;
 
 public class Register extends AppCompatActivity {
 
@@ -93,10 +91,16 @@ public class Register extends AppCompatActivity {
                         address.setAvenue(((android.widget.EditText)findViewById(R.id.input_rua)).getText().toString());
                         String num = ((android.widget.EditText)findViewById(R.id.input_num)).getText().toString();
                         address.setNum(Integer.parseInt(num));
-                        address.setComp(((android.widget.EditText)findViewById(R.id.input_comp)).getText().toString());
 
                         //Gera um UID para o endereço dentro do documento do fornecedor
                         //String addressUid = usersRef.child(uid).child("Address").push().getKey();
+
+                        double[] coords = GeocodeUtil.geocode(address.getAvenue() + " " + address.getNum());
+                        if (coords != null) {
+                            address.setLatitude(coords[0]);
+                            address.setLongitude(coords[1]);
+                        }
+
                         System.out.println(uid);
                         // Salva o fornecedor com o UID como identificador do documento
                         suppliersRef.child(uid).setValue(supplier)

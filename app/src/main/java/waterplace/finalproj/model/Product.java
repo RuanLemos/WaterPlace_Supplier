@@ -1,18 +1,18 @@
 package waterplace.finalproj.model;
 
 public class Product {
-    private String uid;
     private String name;
     private float price;
     private String type;
-    private String brand;
+    private String volume;
+    private String desc;
 
-    public String getUid() {
-        return uid;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public String getName() {
@@ -39,11 +39,11 @@ public class Product {
         this.type = type;
     }
 
-    public String getBrand() {
-        return brand;
+    public String getVolume() {
+        return volume;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setVolume(String volume) {
+        this.volume = volume;
     }
 }

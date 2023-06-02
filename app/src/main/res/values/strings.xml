@@ -22,4 +22,11 @@
     <string name="TxtConfirm">Um e-mail para redefinir a sua senha foi enviado!</string>
     <string name="ligacoes_habilitadas">Ligações habilitadas</string>
     <string name="ligacoes_desabilitadas">Ligações desabilitadas</string>
+    <string name="volume">Volume</string>
+    <string name="type">Type</string>
+    <string name="add_product">Add Product</string>
+    <string name="price">Price</string>
+    <string name="product_name">Product Name</string>
+    <string name="description">Description</string>
+    <string name="placeholder">Placeholder</string>
 </resources>

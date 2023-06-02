@@ -1,6 +1,9 @@
 package waterplace.finalproj.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -13,46 +16,76 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.chip.Chip;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import waterplace.finalproj.R;
+import waterplace.finalproj.adapter.ProductAdapter;
+import waterplace.finalproj.model.Product;
 import waterplace.finalproj.model.Supplier;
 
 public class MainMenu extends AppCompatActivity {
 
+    private String uid;
+    private Supplier supplier;
+    private List<Product> products = new ArrayList<>();
+    private DatabaseReference supplierRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        System.out.println("yayaywyawyayw");
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main_menu);
+        Intent intent = getIntent();
+        uid = intent.getStringExtra("uid");
+        supplierRef = FirebaseDatabase.getInstance().getReference("Suppliers").child(uid);
+        supplierRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    supplier = snapshot.getValue(Supplier.class);
+                    String uid = snapshot.getKey();
+                    makeProdList(uid);
+                }
+            }
 
-        Supplier user = Supplier.getInstance();
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-        // Nome do fornecedor
-        TextView nome_supplier = findViewById(R.id.supplier_name);
-        nome_supplier.setText(user.getName());
-
-        // Adicionar produto
-        ImageButton add_produto = findViewById(R.id.add);
-        add_produto.setOnClickListener(view -> {
-            goToAddProduct();
+            }
         });
+    }
 
-        // Habilitar e desabilitar ligacoes
-        Chip ligacoes = findViewById(R.id.ligacoes);
-        ligacoes.setOnClickListener(view -> {
-            habilitar_ligacoes(ligacoes);
-        });
+    private void makeProdList(String supplierUid){
+        DatabaseReference prodRef = supplierRef.child("Products");
+        prodRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot prodSnapshot : snapshot.getChildren()) {
+                    Product product = prodSnapshot.getValue(Product.class);
+                    products.add(product);
+                }
+                updateUI();
+            }
 
-        // Alterar foto da capa
-        Chip alterar_foto = findViewById(R.id.alterar_capa);
-        alterar_foto.setOnClickListener(view -> {
-            goToChangeCover();
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
         });
     }
 
     private void goToAddProduct() {
         Intent i = new Intent(this, AddProduct.class);
+        i.putExtra("uid", uid);
         startActivity(i);
     }
 
@@ -84,5 +117,32 @@ public class MainMenu extends AppCompatActivity {
         }
     }
 
+    private void updateUI(){
+        // Nome do fornecedor
+        TextView nome_supplier = findViewById(R.id.supplier_name);
+        nome_supplier.setText(supplier.getName());
 
+        // Adicionar produto
+        ImageButton add_produto = findViewById(R.id.add);
+        add_produto.setOnClickListener(view -> {
+            goToAddProduct();
+        });
+
+        // Habilitar e desabilitar ligacoes
+        Chip ligacoes = findViewById(R.id.ligacoes);
+        ligacoes.setOnClickListener(view -> {
+            habilitar_ligacoes(ligacoes);
+        });
+
+        // Alterar foto da capa
+        Chip alterar_foto = findViewById(R.id.alterar_capa);
+        alterar_foto.setOnClickListener(view -> {
+            goToChangeCover();
+        });
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerview_products);
+        ProductAdapter adapter = new ProductAdapter(products);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
 }
