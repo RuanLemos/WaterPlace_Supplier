@@ -32,6 +32,7 @@ public class Login extends AppCompatActivity {
     private Button bt_log;
     private Button bt_rec;
     private FirebaseAuth firebaseAuth;
+    private String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +74,8 @@ public class Login extends AppCompatActivity {
 
     public void goMenu(){
         Intent i = new Intent(this,MainMenu.class);
+        i.putExtra("uid", uid);
+        System.out.println("jdhjdsjdhsjdh");
         startActivity(i);
     }
 
@@ -89,7 +92,7 @@ public class Login extends AppCompatActivity {
             if (task.isSuccessful()) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    String uid = user.getUid();
+                    uid = user.getUid();
                     DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("Suppliers");
                     usersRef.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override

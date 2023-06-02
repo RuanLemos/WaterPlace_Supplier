@@ -6,4 +6,69 @@
     android:layout_height="match_parent"
     tools:context=".activity.AddProduct">
 
+    <EditText
+        android:id="@+id/input_product_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/product_name"
+        android:inputType="text"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <EditText
+        android:id="@+id/input_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/price"
+        android:inputType="numberDecimal"
+        app:layout_constraintTop_toBottomOf="@id/input_product_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <EditText
+        android:id="@+id/input_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/type"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/input_price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <EditText
+        android:id="@+id/input_volume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/volume"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/input_type"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <EditText
+        android:id="@+id/input_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/description"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/input_volume"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <Button
+        android:id="@+id/btn_Add_Product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_product"
+        app:layout_constraintTop_toBottomOf="@id/input_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
