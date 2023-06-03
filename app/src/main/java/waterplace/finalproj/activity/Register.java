@@ -28,6 +28,7 @@ import waterplace.finalproj.R;
 import waterplace.finalproj.model.Address;
 import waterplace.finalproj.model.Supplier;
 import waterplace.finalproj.util.GeocodeUtil;
+import waterplace.finalproj.util.viacepUtil;
 
 public class Register extends AppCompatActivity {
 
@@ -171,13 +172,16 @@ public class Register extends AppCompatActivity {
                         address.setAvenue(((android.widget.EditText)findViewById(R.id.input_rua)).getText().toString());
                         String num = ((android.widget.EditText)findViewById(R.id.input_num)).getText().toString();
                         address.setNum(Integer.parseInt(num));
-                        String CEP = ((android.widget.EditText)findViewById(R.id.input_cep)).getText().toString();
-                        address.setCEP(Integer.parseInt(CEP));
+                        String cep = ((android.widget.EditText)findViewById(R.id.input_cep)).getText().toString();
+                        address.setCEP(Integer.parseInt(cep));
+
+                        //int CEP = viacepUtil.CEPcheck(address.getCEP());
 
                         //Gera um UID para o endereço dentro do documento do fornecedor
                         //String addressUid = usersRef.child(uid).child("Address").push().getKey();
 
-                        double[] coords = GeocodeUtil.geocode(address.getAvenue() + " " + address.getNum(), address.getCEP());
+                        /*
+                        double[] coords = GeocodeUtil.geocode(address.getAvenue() + " " + address.getNum());
                         if (coords != null) {
                             address.setLatitude(coords[0]);
                             address.setLongitude(coords[1]);
@@ -187,6 +191,7 @@ public class Register extends AppCompatActivity {
                             inputField.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FF9494")));
                             verificationText.setVisibility(View.VISIBLE);
                         }
+                         */
 
                         System.out.println(uid);
                         // Salva o fornecedor com o UID como identificador do documento

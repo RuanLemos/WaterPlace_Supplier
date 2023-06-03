@@ -15,9 +15,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class GeocodeUtil {
-    public static double[] geocode(String address, int cep) {
+    public static double[] geocode(String address) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        Future<double[]> futureResult = executor.submit(new GeocodeTask(address, cep));
+        Future<double[]> futureResult = executor.submit(new GeocodeTask(address));
 
         try {
             return futureResult.get();
@@ -32,29 +32,14 @@ public class GeocodeUtil {
 
     private static class GeocodeTask implements Callable<double[]> {
         private String address;
-        private int cep;
 
-        public GeocodeTask(String address, int cep) {
+        public GeocodeTask(String address) {
             this.address = address;
-            this.cep = cep;
         }
 
         @Override
         public double[] call() throws Exception {
-            String url = "https://photon.komoot.io/api/?";
-
-            if (address != null) {
-                url += "q=" + URLEncoder.encode(address, "UTF-8");
-            } else {
-
-            }
-
-            if (cep > 0) {
-                if (address != null) {
-                    url += "&";
-                }
-                url += "postal_code=" + URLEncoder.encode(Integer.toString(cep), "UTF-8");
-            }
+            String url = "https://photon.komoot.io/api/?q=" + URLEncoder.encode(address, "UTF-8");
 
             HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
             con.setRequestMethod("GET");
@@ -65,10 +50,14 @@ public class GeocodeUtil {
             String line;
             while ((line = reader.readLine()) != null) {
                 response.append(line);
+                //Log.d("Geocode", line);
             }
             reader.close();
 
             String jsonResponse = response.toString();
+
+            //Log.d("Teste", jsonResponse);
+
             JSONObject responseObject = new JSONObject(jsonResponse);
 
             JSONArray features = responseObject.getJSONArray("features");
@@ -80,9 +69,9 @@ public class GeocodeUtil {
 
                 double longitude = coordinates.getDouble(0);
                 double latitude = coordinates.getDouble(1);
+                //Log.d("TESTEEEEE", latitude);
                 return new double[]{latitude, longitude};
             }
-
             return null;
         }
     }

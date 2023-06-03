@@ -8,10 +8,15 @@ public class Address {
 
     private int CEP;
 
-    public int getCEP() { return CEP; }
+    public int getCEP() {
+        return CEP;
+    }
 
-    public void setCEP(int CEP) { this.CEP = CEP; }
+    public void setCEP(int CEP) {
+        this.CEP = CEP;
+    }
 
+    /*
     public double getLatitude() {
         return latitude;
     }
@@ -27,6 +32,8 @@ public class Address {
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
+
+     */
 
     public Address() {
     }
