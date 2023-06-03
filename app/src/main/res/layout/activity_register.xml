@@ -75,6 +75,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/header_cadastro" />
 
+        <TextView
+            android:id="@+id/error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp"
+            android:text="@string/Erro"
+            android:textColor="#FF9494"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/input_email_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/error_util"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="98dp"
+            android:text="@string/Erro_util"
+            android:textColor="#FF9494"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/input_email_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <EditText
             android:id="@+id/input_email_3"
             android:layout_width="293dp"
@@ -101,6 +125,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/input_nome" />
 
+        <TextView
+            android:id="@+id/error_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp"
+            android:text="@string/Erro"
+            android:textColor="#FF9494"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/input_telefone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <EditText
             android:id="@+id/input_telefone"
             android:layout_width="293dp"
@@ -126,6 +162,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/input_email_3" />
+
+        <TextView
+            android:id="@+id/error_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp"
+            android:text="@string/Erro"
+            android:textColor="#FF9494"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/input_cnpj_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/input_cnpj_2"
@@ -175,6 +223,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/input_cnpj_2" />
 
+        <TextView
+            android:id="@+id/error_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="14dp"
+            android:text="@string/Erro_senha"
+            android:textColor="#FF9494"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/input_confirm_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <EditText
             android:id="@+id/input_confirm_password"
             android:layout_width="293dp"
@@ -209,7 +269,6 @@
             android:textColor="#0080ff"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/input_confirm_password" />
@@ -223,6 +282,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/header_endereco"
             app:srcCompat="@drawable/barra" />
+
+        <TextView
+            android:id="@+id/error_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="136dp"
+            android:text="@string/Erro_end"
+            android:textColor="#FF9494"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/input_rua"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/input_rua"
@@ -277,26 +348,26 @@
             app:layout_constraintTop_toBottomOf="@+id/input_rua" />
 
         <EditText
-            android:id="@+id/input_comp"
+            android:id="@+id/input_cep"
             android:layout_width="293dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/rounded_background"
             android:drawablePadding="20dp"
             android:ems="10"
-            android:inputType="textPostalAddress"
+            android:inputType="number"
             android:textColorHint="#69b2c3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/input_num" />
 
         <TextView
-            android:id="@+id/txt_comp"
+            android:id="@+id/txt_cep"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="182dp"
-            android:text="@string/Complemento"
+            android:layout_marginEnd="245dp"
+            android:text="@string/CEP"
             android:textColor="#69b2c3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -312,7 +383,7 @@
             app:cornerRadius="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input_comp" />
+            app:layout_constraintTop_toBottomOf="@+id/input_cep" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
