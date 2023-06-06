@@ -40,8 +40,8 @@ public class MainMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        System.out.println("yayaywyawyayw");
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main_menu);
         Intent intent = getIntent();
