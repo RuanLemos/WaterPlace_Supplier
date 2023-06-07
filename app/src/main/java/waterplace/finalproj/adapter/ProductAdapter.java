@@ -45,6 +45,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.name.setText(product.getName());
         holder.price.setText(String.valueOf(product.getPrice()));
         holder.desc.setText(product.getDesc());
+
         Glide.with(holder.img.getContext())
                 .load(storageReference)
                 .into(holder.img);

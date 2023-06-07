@@ -52,6 +52,12 @@ public class AddProduct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addProd();
+                // espera 2 segundos para voltar ao menu pra dar tempo de carregar a imagem, da pra por uma tela de load aqui
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 goMenu();
             }
         });
