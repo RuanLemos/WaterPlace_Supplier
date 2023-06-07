@@ -11,6 +11,8 @@ public class Supplier {
     private String phone;
     private List<Product> products;
 
+    private String uid;
+
     // Cria um construtor com o padrão singleton
     private static Supplier instance;
 
@@ -19,6 +21,7 @@ public class Supplier {
 
     // Construtor privado para o padrão singleton
     private Supplier(DataSnapshot dataSnapshot){
+        this.uid = dataSnapshot.getKey();
         this.name = dataSnapshot.child("name").getValue().toString();
         this.cnpj = Integer.parseInt(dataSnapshot.child("cnpj").getValue().toString());
         this.phone = dataSnapshot.child("phone").getValue().toString();
@@ -34,6 +37,9 @@ public class Supplier {
         instance = new Supplier(dataSnapshot);
     }
 
+    public String getUid(){
+        return uid;
+    }
     public String getName() {
         return name;
     }
