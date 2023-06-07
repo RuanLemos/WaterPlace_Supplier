@@ -36,6 +36,7 @@ public class AddProduct extends AppCompatActivity {
     private List<Product> products = supplier.getProducts();
     private FirebaseDatabase database;
     private DatabaseReference supRef;
+    private String prodUid;
 
     private Uri selectedImageUri;
     @Override
@@ -84,10 +85,12 @@ public class AddProduct extends AppCompatActivity {
         product.setType(type);
         product.setVolume(volume);
         product.setDesc(description);
-        UploadDeImagem(selectedImageUri);
 
-        String prodUid = supRef.child(supplierUid).child("Products").push().getKey();
+
+        prodUid = supRef.child(supplierUid).child("Products").push().getKey();
         supRef.child(supplierUid).child("Products").child(prodUid).setValue(product);
+
+        UploadDeImagem(selectedImageUri);
 
         products.add(product);
         supplier.setProducts(products);
@@ -101,7 +104,7 @@ public class AddProduct extends AppCompatActivity {
 
         String uid = supplier.getUid();
 
-        StorageReference imageRef = storageRef.child(uid+"/"+selectedImageUri.getLastPathSegment());
+        StorageReference imageRef = storageRef.child(uid+"/products/"+prodUid);
         UploadTask uploadTask = imageRef.putFile(selectedImageUri);
 
         // Register observers to listen for when the download is done or if it fails
