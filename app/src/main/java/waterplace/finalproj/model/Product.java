@@ -1,6 +1,8 @@
 package waterplace.finalproj.model;
 
 public class Product {
+
+    private String uid;
     private String name;
     private float price;
     private String type;
@@ -45,5 +47,13 @@ public class Product {
 
     public void setVolume(String volume) {
         this.volume = volume;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 }

@@ -21,6 +21,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +54,6 @@ public class MainMenu extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     supplier = snapshot.getValue(Supplier.class);
-                    String uid = snapshot.getKey();
                     makeProdList(uid);
                 }
             }
@@ -71,6 +72,7 @@ public class MainMenu extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot prodSnapshot : snapshot.getChildren()) {
                     Product product = prodSnapshot.getValue(Product.class);
+                    product.setUid(prodSnapshot.getKey());
                     products.add(product);
                 }
                 updateUI();
@@ -141,7 +143,7 @@ public class MainMenu extends AppCompatActivity {
         });
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview_products);
-        ProductAdapter adapter = new ProductAdapter(products);
+        ProductAdapter adapter = new ProductAdapter(products, uid);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
