@@ -28,6 +28,7 @@ import waterplace.finalproj.R;
 import waterplace.finalproj.model.Address;
 import waterplace.finalproj.model.Supplier;
 import waterplace.finalproj.util.GeocodeUtil;
+import waterplace.finalproj.util.viacepUtil;
 
 public class Register extends AppCompatActivity {
 
@@ -171,15 +172,26 @@ public class Register extends AppCompatActivity {
                         address.setAvenue(((android.widget.EditText)findViewById(R.id.input_rua)).getText().toString());
                         String num = ((android.widget.EditText)findViewById(R.id.input_num)).getText().toString();
                         address.setNum(Integer.parseInt(num));
+                        String cep = ((android.widget.EditText)findViewById(R.id.input_cep)).getText().toString();
+                        address.setCEP(Integer.parseInt(cep));
+
+                        //int CEP = viacepUtil.CEPcheck(address.getCEP());
 
                         //Gera um UID para o endereço dentro do documento do fornecedor
                         //String addressUid = usersRef.child(uid).child("Address").push().getKey();
 
+                        /*
                         double[] coords = GeocodeUtil.geocode(address.getAvenue() + " " + address.getNum());
                         if (coords != null) {
                             address.setLatitude(coords[0]);
                             address.setLongitude(coords[1]);
+                        } else {
+                            EditText inputField = findViewById(R.id.input_rua);
+                            TextView verificationText = findViewById(R.id.error_5);
+                            inputField.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FF9494")));
+                            verificationText.setVisibility(View.VISIBLE);
                         }
+                         */
 
                         System.out.println(uid);
                         // Salva o fornecedor com o UID como identificador do documento
@@ -202,7 +214,6 @@ public class Register extends AppCompatActivity {
                 }
             });
         } else {
-            Toast.makeText(Register.this, "As senhas não são idênticas", Toast.LENGTH_SHORT).show();
             EditText inputField = findViewById(R.id.input_password_2);
             EditText inputField2 = findViewById(R.id.input_confirm_password);
             TextView verificationText = findViewById(R.id.error_4);
