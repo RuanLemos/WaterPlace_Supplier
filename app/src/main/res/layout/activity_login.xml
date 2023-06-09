@@ -47,6 +47,7 @@
 
     <EditText
         android:id="@+id/input_email"
+        android:elevation="6dp"
         android:layout_width="293dp"
         android:layout_height="50dp"
         android:layout_marginStart="59dp"
@@ -65,6 +66,7 @@
 
     <TextView
         android:id="@+id/txt_cnpj"
+        android:elevation="6dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="240dp"
@@ -78,6 +80,7 @@
 
     <EditText
         android:id="@+id/input_password"
+        android:elevation="6dp"
         android:layout_width="293dp"
         android:layout_height="50dp"
         android:layout_marginStart="59dp"
@@ -95,6 +98,7 @@
 
     <TextView
         android:id="@+id/txt_senha"
+        android:elevation="6dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
