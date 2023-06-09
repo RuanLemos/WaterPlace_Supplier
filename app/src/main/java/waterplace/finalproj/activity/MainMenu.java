@@ -10,17 +10,27 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.chip.Chip;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageMetadata;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,8 +50,8 @@ public class MainMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        System.out.println("yayaywyawyayw");
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main_menu);
         Intent intent = getIntent();
@@ -52,8 +62,8 @@ public class MainMenu extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     supplier = snapshot.getValue(Supplier.class);
-                    String uid = snapshot.getKey();
-                    makeProdList(uid);
+                    makeProdList();
+                    setCapaImage();
                 }
             }
 
@@ -62,15 +72,40 @@ public class MainMenu extends AppCompatActivity {
 
             }
         });
+
     }
 
-    private void makeProdList(String supplierUid){
+    private void setCapaImage() {
+        ImageView img_capa = findViewById(R.id.image_capa);
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+        String location = uid+"/capa/image.jpg";
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child(location);
+        storageReference.getMetadata().addOnSuccessListener(new OnSuccessListener<StorageMetadata>() {
+            @Override
+            public void onSuccess(StorageMetadata storageMetadata) {
+                Glide.with(MainMenu.this)
+                        .load(storageReference)
+                        .into(img_capa);
+                img_capa.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.GONE);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                img_capa.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.GONE);
+            }
+        });
+    }
+
+    private void makeProdList(){
         DatabaseReference prodRef = supplierRef.child("Products");
         prodRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot prodSnapshot : snapshot.getChildren()) {
                     Product product = prodSnapshot.getValue(Product.class);
+                    product.setUid(prodSnapshot.getKey());
                     products.add(product);
                 }
                 updateUI();
@@ -100,6 +135,28 @@ public class MainMenu extends AppCompatActivity {
         }
     }
 
+    public void UploadDeImagem(Uri selectedImageUri) {
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getReference();
+
+        StorageReference imageRef = storageRef.child(uid+"/capa/image.jpg");
+        UploadTask uploadTask = imageRef.putFile(selectedImageUri);
+
+        // Register observers to listen for when the download is done or if it fails
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                Toast.makeText(MainMenu.this, "Erro ao fazer upload da imagem", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Toast.makeText(MainMenu.this, "Upload da imagem feito com sucesso", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
     private void goToChangeCover() {
         Intent i = new Intent(Intent.ACTION_GET_CONTENT);
         i.setType("image/*");
@@ -112,8 +169,9 @@ public class MainMenu extends AppCompatActivity {
 
         if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
             Uri selectedImageUri = data.getData();
-            ImageView imageView = findViewById(R.id.imagem_capa);
+            ImageView imageView = (ImageView)findViewById(R.id.image_capa);
             imageView.setImageURI(selectedImageUri);
+            UploadDeImagem(selectedImageUri);
         }
     }
 
@@ -141,7 +199,7 @@ public class MainMenu extends AppCompatActivity {
         });
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview_products);
-        ProductAdapter adapter = new ProductAdapter(products);
+        ProductAdapter adapter = new ProductAdapter(products, uid);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
