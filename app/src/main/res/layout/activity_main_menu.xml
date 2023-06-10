@@ -69,8 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/supplier_name" />
-        app:layout_constraintTop_toTopOf="@+id/image_capa"
-        app:layout_constraintVertical_bias="0.283" />
+
     <ImageView
         android:id="@+id/icone"
         android:layout_width="74dp"
@@ -109,8 +108,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/image_capa"
-        app:layout_constraintVertical_bias="0.023"
         app:srcCompat="@drawable/add_button" />
 
     <com.google.android.material.chip.Chip
@@ -127,8 +124,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-        app:layout_constraintTop_toTopOf="@+id/image_capa"
-        app:layout_constraintVertical_bias="0.094" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/ligacoes"
@@ -147,9 +142,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/supplier_name" />
-        app:layout_constraintTop_toTopOf="@+id/image_capa"
-        app:layout_constraintVertical_bias="0.423"
-        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_products"
@@ -191,9 +183,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.049" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
