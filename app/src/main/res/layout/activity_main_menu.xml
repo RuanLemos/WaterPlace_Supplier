@@ -40,7 +40,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="357dp"
         android:text="5.0"
-        android:textColor="@android:color/holo_orange_light"
+        android:textColor="#fce603"
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,8 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/supplier_name" />
-        app:layout_constraintTop_toTopOf="@+id/image_capa"
-        app:layout_constraintVertical_bias="0.283" />
+
     <ImageView
         android:id="@+id/icone"
         android:layout_width="74dp"
@@ -109,8 +108,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/image_capa"
-        app:layout_constraintVertical_bias="0.023"
         app:srcCompat="@drawable/add_button" />
 
     <com.google.android.material.chip.Chip
@@ -127,8 +124,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-        app:layout_constraintTop_toTopOf="@+id/image_capa"
-        app:layout_constraintVertical_bias="0.094" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/ligacoes"
@@ -147,30 +142,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/supplier_name" />
-        app:layout_constraintTop_toTopOf="@+id/image_capa"
-        app:layout_constraintVertical_bias="0.423"
-        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_products"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/divisor_footer"
+        app:layout_constraintBottom_toTopOf="@+id/menu_footer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chip">
 
     </androidx.recyclerview.widget.RecyclerView>
-
-    <View
-        android:id="@+id/divisor_footer"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@drawable/line_divider"
-        app:layout_constraintBottom_toTopOf="@+id/menu_footer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/menu_footer"
@@ -182,7 +165,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/menu_item" />
+        app:menu="@menu/menu_item" >
+
+        <View
+            android:id="@+id/divisor_footer"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/line_divider" />
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -191,9 +181,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.049" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
