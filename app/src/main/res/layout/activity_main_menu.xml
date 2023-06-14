@@ -9,155 +9,179 @@
     tools:layout_editor_absoluteY="42dp">
 
     <ImageView
-        android:id="@+id/imagem_capa"
+        android:id="@+id/image_capa"
         android:layout_width="413dp"
         android:layout_height="110dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/galao_agua" />
 
     <TextView
         android:id="@+id/supplier_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="140dp"
         android:text="Nome do fornecedor"
         android:textColor="@color/black"
-        android:textSize="34dp"
+        android:textSize="26dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.189" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/nota"
         android:layout_width="20dp"
         android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="357dp"
         android:text="5.0"
-        android:textColor="@android:color/holo_orange_light"
+        android:textColor="#fce603"
         android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.29" />
+        app:layout_constraintTop_toBottomOf="@+id/legenda" />
 
     <TextView
         android:id="@+id/legenda"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Apenas galão"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="285dp"
+        android:text="Apenas galões"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintTop_toBottomOf="@+id/supplier_name" />
 
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="230dp"
         android:scaleX="0.4"
         android:scaleY="0.4"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imagem_capa"
-        app:layout_constraintVertical_bias="0.283" />
+        app:layout_constraintTop_toBottomOf="@+id/supplier_name" />
 
     <ImageView
         android:id="@+id/icone"
         android:layout_width="74dp"
         android:layout_height="72dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="130dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.91"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.211"
         app:srcCompat="@drawable/lojinha" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip"
-        android:layout_width="340dp"
-        android:layout_height="58dp"
+        android:layout_width="210dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="168dp"
         android:text="Adicionar destaque promocional"
-        android:textColor="#BC52A500"
-        android:textSize="20dp"
-        app:chipBackgroundColor="#33BDFF00"
+        android:textColor="#8fc944"
+        android:textSize="12dp"
+        app:chipBackgroundColor="#e9ffab"
         app:chipEndPadding="2dp"
         app:chipIcon="@drawable/ticket"
-        app:chipIconSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:chipIconSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337" />
+        app:layout_constraintTop_toBottomOf="@+id/supplier_name" />
 
     <ImageButton
         android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="330dp"
+        android:layout_marginTop="10dp"
         android:background="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.956"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imagem_capa"
-        app:layout_constraintVertical_bias="0.023"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/add_button" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/alterar_capa"
         style="@style/ChipWithBorder"
-        android:layout_width="178dp"
-        android:layout_height="36dp"
+        android:layout_width="148dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="210dp"
         android:text="Alterar foto de destaque"
+        android:textAlignment="center"
+        android:textSize="30px"
         app:chipBackgroundColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imagem_capa"
-        app:layout_constraintVertical_bias="0.094" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/ligacoes"
         style="@style/ChipWithBorder"
-        android:layout_width="340dp"
-        android:layout_height="58dp"
-        android:text="Ligações habilitadas"
-        android:textSize="20dp"
+        android:layout_width="150dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="50dp"
         android:clickable="true"
+        android:text="Ligações habilitadas"
+        android:textSize="12dp"
         app:chipBackgroundColor="@color/white"
-        app:chipStrokeColor="@android:color/holo_green_light"
         app:chipIcon="@drawable/phone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:chipIconSize="14dp"
+        app:chipStrokeColor="#d8ffb9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imagem_capa"
-        app:layout_constraintVertical_bias="0.423"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/supplier_name" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_products"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/ligacoes"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/menu_footer"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chip">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/menu_footer"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:itemIconSize="40dp"
+        app:itemIconTint="@color/menu_colors"
+        app:itemPaddingTop="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_item" >
+
+        <View
+            android:id="@+id/divisor_footer"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/line_divider" />
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -38,7 +38,6 @@ public class AddProduct extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference supRef;
     private String prodUid;
-
     private Uri selectedImageUri;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,13 +53,6 @@ public class AddProduct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addProd();
-                // espera 2 segundos para voltar ao menu pra dar tempo de carregar a imagem, da pra por uma tela de load aqui
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                goMenu();
             }
         });
 
@@ -119,13 +111,12 @@ public class AddProduct extends AppCompatActivity {
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
-                // Handle unsuccessful uploads
+                Toast.makeText(AddProduct.this, "Erro ao fazer upload da imagem", Toast.LENGTH_SHORT).show();
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
-                // ...
+                goMenu();
             }
         });
     }

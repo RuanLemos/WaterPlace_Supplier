@@ -84,10 +84,8 @@ public class Register extends AppCompatActivity {
 
         if (!Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()) {
             // Formato de Email inválido
-            EditText inputField = findViewById(R.id.input_email_3);
-            TextView verificationText = findViewById(R.id.error_util);
-            inputField.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FF9494")));
-            verificationText.setVisibility(View.VISIBLE);
+            showError((EditText) findViewById(R.id.input_email_3), (TextView) findViewById(R.id.error));
+
         } else {
             // Formato de Email é válido, manda para o firebase para checar a existencia do email
             firebaseAuth.fetchSignInMethodsForEmail(userEmail).addOnCompleteListener(task -> {
@@ -104,17 +102,12 @@ public class Register extends AppCompatActivity {
                             }
                         } else {
                             // Email já foi utilizado, mostra o texto vermelho e trocar cor de borda do campo
-                            EditText inputField = findViewById(R.id.input_email_3);
-                            TextView verificationText = findViewById(R.id.error_util);
-                            inputField.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FF9494")));
-                            verificationText.setVisibility(View.VISIBLE);
+                            showError((EditText) findViewById(R.id.input_email_3), (TextView) findViewById(R.id.error_util));
                         }
                     } else {
                         // Informação Invalida, mostra o texto vermelho e trocar cor de borda do campo
-                        EditText inputField = findViewById(R.id.input_email_3);
-                        TextView verificationText = findViewById(R.id.error);
-                        inputField.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FF9494")));
-                        verificationText.setVisibility(View.VISIBLE);
+                        showError((EditText) findViewById(R.id.input_email_3), (TextView) findViewById(R.id.error));
+
                     }
                 });
         }
@@ -128,10 +121,8 @@ public class Register extends AppCompatActivity {
         if (matcher.matches()){
             return true;
         } else {
-            EditText inputField = findViewById(R.id.input_telefone);
-            TextView verificationText = findViewById(R.id.error_2);
-            inputField.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FF9494")));
-            verificationText.setVisibility(View.VISIBLE);
+            showError((EditText) findViewById(R.id.input_telefone), (TextView) findViewById(R.id.error_2));
+
             return false;
         }
     }
@@ -144,12 +135,15 @@ public class Register extends AppCompatActivity {
         if(matcher.matches()){
             return true;
         } else {
-            EditText inputField = findViewById(R.id.input_cnpj_2);
-            TextView verificationText = findViewById(R.id.error_3);
-            inputField.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FF9494")));
-            verificationText.setVisibility(View.VISIBLE);
+            showError((EditText) findViewById(R.id.input_cnpj_2), (TextView) findViewById(R.id.error_3));
+
             return false;
         }
+    }
+
+    public void showError(EditText inputField, TextView verificationText) {
+        inputField.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FF9494")));
+        verificationText.setVisibility(View.VISIBLE);
     }
 
     public void register(){
@@ -186,10 +180,8 @@ public class Register extends AppCompatActivity {
                             address.setLatitude(coords[0]);
                             address.setLongitude(coords[1]);
                         } else {
-                            EditText inputField = findViewById(R.id.input_rua);
-                            TextView verificationText = findViewById(R.id.error_5);
-                            inputField.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FF9494")));
-                            verificationText.setVisibility(View.VISIBLE);
+                        showError((EditText) findViewById(R.id.input_rua), (TextView) findViewById(R.id.error_5));
+
                         }
                          */
 
@@ -214,12 +206,9 @@ public class Register extends AppCompatActivity {
                 }
             });
         } else {
-            EditText inputField = findViewById(R.id.input_password_2);
-            EditText inputField2 = findViewById(R.id.input_confirm_password);
-            TextView verificationText = findViewById(R.id.error_4);
-            inputField.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FF9494")));
-            inputField2.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FF9494")));
-            verificationText.setVisibility(View.VISIBLE);
+            showError((EditText) findViewById(R.id.input_password_2), (TextView) findViewById(R.id.error_4));
+            showError((EditText) findViewById(R.id.input_confirm_password), null);
+
         }
     }
 }

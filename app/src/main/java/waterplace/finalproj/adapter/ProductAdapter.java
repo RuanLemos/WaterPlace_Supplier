@@ -34,22 +34,20 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product, parent, false);
         return new ProductViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         Product product = productList.get(position);
         String location = supplierUid+"/products/"+product.getUid();
         // Reference to an image file in Cloud Storage
         StorageReference storageReference = FirebaseStorage.getInstance().getReference().child(location);
-
-        holder.name.setText(product.getName());
-        holder.price.setText(String.valueOf(product.getPrice()));
-        holder.desc.setText(product.getDesc());
-
         Glide.with(holder.img.getContext())
                 .load(storageReference)
                 .into(holder.img);
+        holder.name.setText(product.getName());
+        holder.price.setText(String.valueOf(product.getPrice()));
+        holder.desc.setText(product.getDesc());
     }
+
 
     @Override
     public int getItemCount() {
