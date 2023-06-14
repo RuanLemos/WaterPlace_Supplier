@@ -168,7 +168,7 @@ public class Register extends AppCompatActivity {
                         supplier.setName(((android.widget.EditText)findViewById(R.id.input_nome)).getText().toString());
                         supplier.setPhone(((android.widget.EditText)findViewById(R.id.input_telefone)).getText().toString());
                         String cnpj = ((android.widget.EditText)findViewById(R.id.input_cnpj_2)).getText().toString();
-                        supplier.setCnpj(Integer.parseInt(cnpj));
+                        supplier.setCnpj(Long.parseLong(cnpj));
                         address.setAvenue(((android.widget.EditText)findViewById(R.id.input_rua)).getText().toString());
                         String num = ((android.widget.EditText)findViewById(R.id.input_num)).getText().toString();
                         address.setNum(Integer.parseInt(num));

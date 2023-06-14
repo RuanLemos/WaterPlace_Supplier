@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Supplier {
     private String name;
-    private int cnpj;
+    private Long cnpj;
     private String phone;
     private List<Product> products;
 
@@ -23,7 +23,7 @@ public class Supplier {
     private Supplier(DataSnapshot dataSnapshot){
         this.uid = dataSnapshot.getKey();
         this.name = dataSnapshot.child("name").getValue().toString();
-        this.cnpj = Integer.parseInt(dataSnapshot.child("cnpj").getValue().toString());
+        this.cnpj = Long.valueOf(dataSnapshot.child("cnpj").getValue().toString());
         this.phone = dataSnapshot.child("phone").getValue().toString();
         if (dataSnapshot.child("products").exists()){
             this.products = (List<Product>) dataSnapshot.child("products").getValue();
@@ -48,11 +48,11 @@ public class Supplier {
         this.name = name;
     }
 
-    public int getCnpj() {
+    public Long getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(int cnpj) {
+    public void setCnpj(Long cnpj) {
         this.cnpj = cnpj;
     }
 
