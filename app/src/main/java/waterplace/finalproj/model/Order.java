@@ -3,6 +3,8 @@ package waterplace.finalproj.model;
 import java.io.Serializable;
 
 public class Order implements Serializable {
+
+    private String orderId;
     private String userId;
     private String supplierId;
     private String prodId;
@@ -19,6 +21,14 @@ public class Order implements Serializable {
 
     public Order() {
 
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
     public String getUserId() {

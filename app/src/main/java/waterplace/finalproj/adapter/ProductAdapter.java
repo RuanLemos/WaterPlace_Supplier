@@ -1,5 +1,6 @@
 package waterplace.finalproj.adapter;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import waterplace.finalproj.R;
@@ -34,6 +36,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product, parent, false);
         return new ProductViewHolder(view);
     }
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         Product product = productList.get(position);
@@ -44,7 +47,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 .load(storageReference)
                 .into(holder.img);
         holder.name.setText(product.getName());
-        holder.price.setText(String.valueOf(product.getPrice()));
+        DecimalFormat pf = new DecimalFormat("0.00");
+        holder.price.setText("R$ " + pf.format(product.getPrice()));
         holder.desc.setText(product.getDesc());
     }
 

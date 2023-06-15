@@ -119,7 +119,7 @@
         app:layout_constraintTop_toBottomOf="@+id/header_history" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle_history"
+        android:id="@+id/recycler_history"
         android:layout_width="409dp"
         android:layout_height="200dp"
         app:layout_constraintBottom_toTopOf="@+id/menu_footer"
