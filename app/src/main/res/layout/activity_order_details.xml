@@ -45,17 +45,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header_detalhes" />
 
-    <ImageView
-        android:id="@+id/product_pic"
+    <FrameLayout
+        android:id="@+id/framezada"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="305dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divisor_8"
-        app:srcCompat="@android:drawable/stat_sys_download" />
+        app:layout_constraintTop_toBottomOf="@+id/divisor_8" >
 
+        <ImageView
+            android:id="@+id/img_prod"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/stat_sys_download" />
+
+    </FrameLayout>
     <TextView
         android:id="@+id/amount_tag"
         android:layout_width="20dp"
@@ -88,11 +98,11 @@
 
     <TextView
         android:id="@+id/amount"
-        android:layout_width="85dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="190dp"
+        android:layout_marginEnd="125dp"
         android:text="Quantidade"
         android:textSize="12dp"
         android:textStyle="bold"
@@ -102,11 +112,11 @@
 
     <TextView
         android:id="@+id/del_type"
-        android:layout_width="105dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="170dp"
+        android:layout_marginEnd="125dp"
         android:text="Entrega"
         android:textColor="@color/black"
         android:textSize="12dp"
@@ -138,7 +148,7 @@
         android:backgroundTint="#d9d9d9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/product_pic" />
+        app:layout_constraintTop_toBottomOf="@+id/framezada" />
 
     <TextView
         android:id="@+id/header_resumo"
@@ -349,7 +359,7 @@
         android:textColor="@color/black"
         android:textSize="14dp"
         android:textStyle="bold"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/end_value" />
@@ -361,7 +371,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/line_divider"
         android:backgroundTint="#d9d9d9"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/end_value" />
@@ -383,16 +393,15 @@
 
     <TextView
         android:id="@+id/del_type_reminder"
-        android:layout_width="180dp"
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="190dp"
+        android:layout_marginStart="21dp"
         android:text="Entrega"
         android:textColor="@color/black"
-        android:textSize="22dp"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header_status" />
 
@@ -436,7 +445,7 @@
 
     <Button
         android:id="@+id/edit_confirm"
-        android:layout_width="160dp"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="3dp"
         android:backgroundTint="#e9ffab"

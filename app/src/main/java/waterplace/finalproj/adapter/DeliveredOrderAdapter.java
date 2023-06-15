@@ -23,12 +23,12 @@ import waterplace.finalproj.R;
 import waterplace.finalproj.activity.OrderDetails;
 import waterplace.finalproj.model.Order;
 
-public class OngoingOrderAdapter extends RecyclerView.Adapter<OngoingOrderAdapter.OrderViewHolder> {
+public class DeliveredOrderAdapter extends RecyclerView.Adapter<DeliveredOrderAdapter.OrderViewHolder> {
     private List<Order> ongoingOrderList;
     private Context context;
     private String supId;
 
-    public OngoingOrderAdapter(List<Order> ongoingOrderList, Context context, String supId) {
+    public DeliveredOrderAdapter(List<Order> ongoingOrderList, Context context, String supId) {
         this.ongoingOrderList = ongoingOrderList;
         this.context = context;
         this.supId = supId;
@@ -57,22 +57,11 @@ public class OngoingOrderAdapter extends RecyclerView.Adapter<OngoingOrderAdapte
         } else {
             holder.deliveryDesc.setText("Entrega imediata");
         }
-
         DecimalFormat pf = new DecimalFormat("0.00");
         holder.orderPrice.setText("R$ " + pf.format(order.getPrice()));
         System.out.println(order.getStatus());
 
-        if (order.getStatus().equals("Confirmado")) {
-            if (order.isScheduled()) {
-                holder.orderStatus.setText("Agendado para " + order.getOrderDateTime());
-            } else {
-                holder.orderStatus.setText("Aguardando entrega");
-            }
-        } else if (order.getStatus().equals("Aguardando Confirmação")){
-            holder.orderStatus.setText("Aguardando\nConfirmação");
-        } else {
-            holder.orderStatus.setText(order.getStatus());
-        }
+        holder.orderStatus.setText(order.getStatus() + "\n" + order.getDeliveryDateTime());
 
         Glide.with(holder.img.getContext())
                 .load(storageReference)

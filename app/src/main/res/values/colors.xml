@@ -10,4 +10,6 @@
     <color name="Transparente">#00F44336</color>
     <color name="verde_claro">#C0FF8E</color>
     <color name="vermelho_claro">#DF6666</color>
+    <color name="verdinho">#e9ffab</color>
+    <color name="cor_ruim">#d9d9d9</color>
 </resources>
