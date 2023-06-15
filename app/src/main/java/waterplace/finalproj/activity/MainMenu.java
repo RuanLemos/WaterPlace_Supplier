@@ -21,7 +21,9 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.chip.Chip;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,6 +41,7 @@ import waterplace.finalproj.R;
 import waterplace.finalproj.adapter.ProductAdapter;
 import waterplace.finalproj.model.Product;
 import waterplace.finalproj.model.Supplier;
+import waterplace.finalproj.util.BottomNavigationManager;
 
 public class MainMenu extends AppCompatActivity {
 
@@ -46,16 +49,20 @@ public class MainMenu extends AppCompatActivity {
     private Supplier supplier;
     private List<Product> products = new ArrayList<>();
     private DatabaseReference supplierRef;
+    private BottomNavigationManager bottomNavigationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main_menu);
-        Intent intent = getIntent();
-        uid = intent.getStringExtra("uid");
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.menu_footer);
+        bottomNavigationManager = new BottomNavigationManager(this);
+        bottomNavigationManager.setupBottomNavigation(bottomNavigationView);
+
+        uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         supplierRef = FirebaseDatabase.getInstance().getReference("Suppliers").child(uid);
         supplierRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -176,6 +183,9 @@ public class MainMenu extends AppCompatActivity {
     }
 
     private void updateUI(){
+
+
+
         // Nome do fornecedor
         TextView nome_supplier = findViewById(R.id.supplier_name);
         nome_supplier.setText(supplier.getName());
