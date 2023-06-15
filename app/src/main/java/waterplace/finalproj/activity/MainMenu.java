@@ -94,6 +94,7 @@ public class MainMenu extends AppCompatActivity {
                         .load(storageReference)
                         .into(img_capa);
                 img_capa.setVisibility(View.VISIBLE);
+                System.out.println("ablealblealba");
                 progressBar.setVisibility(View.GONE);
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -178,6 +179,7 @@ public class MainMenu extends AppCompatActivity {
             Uri selectedImageUri = data.getData();
             ImageView imageView = (ImageView)findViewById(R.id.image_capa);
             imageView.setImageURI(selectedImageUri);
+            System.out.println("teste");
             UploadDeImagem(selectedImageUri);
         }
     }
