@@ -8,16 +8,54 @@
     tools:layout_editor_absoluteX="112dp"
     tools:layout_editor_absoluteY="42dp">
 
-    <ImageView
-        android:id="@+id/image_capa"
-        android:layout_width="413dp"
-        android:layout_height="110dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <FrameLayout
+        android:id="@+id/image_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/image_capa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="@+id/alterar_capa"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/galao_agua"
+            android:elevation="2dp" />
+    </FrameLayout>
+
+    <ImageButton
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="#00FFFFFF"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/galao_agua" />
+        app:srcCompat="@drawable/add_button" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/alterar_capa"
+        style="@style/ChipWithBorder"
+        android:layout_width="148dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginStart="30dp"
+        android:text="Alterar foto de destaque"
+        android:textAlignment="center"
+        android:textSize="30px"
+        app:chipBackgroundColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="2dp" />
 
     <TextView
         android:id="@+id/supplier_name"
@@ -98,33 +136,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/supplier_name" />
 
-    <ImageButton
-        android:id="@+id/add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="330dp"
-        android:layout_marginTop="10dp"
-        android:background="#00FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/add_button" />
-
-    <com.google.android.material.chip.Chip
-        android:id="@+id/alterar_capa"
-        style="@style/ChipWithBorder"
-        android:layout_width="148dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="210dp"
-        android:text="Alterar foto de destaque"
-        android:textAlignment="center"
-        android:textSize="30px"
-        app:chipBackgroundColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.google.android.material.chip.Chip
         android:id="@+id/ligacoes"
         style="@style/ChipWithBorder"
@@ -179,10 +190,10 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/supplier_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04000002" />
+        android:elevation="1dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
