@@ -52,24 +52,23 @@ public class OngoingOrderAdapter extends RecyclerView.Adapter<OngoingOrderAdapte
 
         holder.prodName.setText(order.getProdName());
 
-        if (order.isScheduled()) {
-            holder.deliveryDesc.setText("Agendamento para " + order.getOrderDateTime());
-        } else {
-            holder.deliveryDesc.setText("Entrega imediata");
-        }
-
         DecimalFormat pf = new DecimalFormat("0.00");
         holder.orderPrice.setText("R$ " + pf.format(order.getPrice()));
         System.out.println(order.getStatus());
 
+        holder.deliveryDesc.setText(order.getAddress());
+
         if (order.getStatus().equals("Confirmado")) {
             if (order.isScheduled()) {
-                holder.orderStatus.setText("Agendado para " + order.getOrderDateTime());
+                holder.orderStatus.setText(order.getOrderDateTime());
             } else {
                 holder.orderStatus.setText("Aguardando entrega");
             }
         } else if (order.getStatus().equals("Aguardando Confirmação")){
             holder.orderStatus.setText("Aguardando\nConfirmação");
+            if (order.isScheduled()) {
+                holder.deliveryDesc.setText(order.getOrderDateTime());
+            }
         } else {
             holder.orderStatus.setText(order.getStatus());
         }
