@@ -48,6 +48,17 @@ public class AddProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_add_product);
+
+        Spinner productDropdown = findViewById(R.id.product_dropdown);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.dropdown_items,
+                android.R.layout.simple_spinner_item
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        productDropdown.setAdapter(adapter);
+
         Intent intent = getIntent();
         supplierUid = intent.getStringExtra("uid");
         database = FirebaseDatabase.getInstance();
