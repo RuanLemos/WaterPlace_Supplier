@@ -52,11 +52,8 @@ public class DeliveredOrderAdapter extends RecyclerView.Adapter<DeliveredOrderAd
 
         holder.prodName.setText(order.getProdName());
 
-        if (order.isScheduled()) {
-            holder.deliveryDesc.setText("Agendamento para " + order.getOrderDateTime());
-        } else {
-            holder.deliveryDesc.setText("Entrega imediata");
-        }
+        holder.deliveryDesc.setText(order.getAddress());
+
         DecimalFormat pf = new DecimalFormat("0.00");
         holder.orderPrice.setText("R$ " + pf.format(order.getPrice()));
         System.out.println(order.getStatus());

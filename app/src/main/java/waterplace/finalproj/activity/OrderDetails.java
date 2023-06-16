@@ -110,9 +110,9 @@ public class OrderDetails extends AppCompatActivity {
         deliveryType = findViewById(R.id.del_type);
 
         if (order.isScheduled()) {
-            String deliveryDate = "Entrega agendada para " + order.getDeliveryDateTime();
+            String deliveryDate = order.getDeliveryDateTime();
             deliveryType.setText(deliveryDate);
-            delivery.setText("Agendado para " + order.getOrderDateTime());
+            delivery.setText(order.getOrderDateTime());
         } else {
             deliveryType.setText("Entrega imediata");
             delivery.setText("Entrega imediata: " + order.getOrderDateTime());
@@ -204,7 +204,7 @@ public class OrderDetails extends AppCompatActivity {
             status = findViewById(R.id.del_type_reminder);
 
             if (order.isScheduled()) {
-                status.setText("Agendado para " + order.getOrderDateTime());
+                status.setText(order.getOrderDateTime());
             } else {
                 if (order.getStatus().equals("A caminho")){
                     status.setText(order.getStatus());
