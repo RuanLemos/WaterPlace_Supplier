@@ -11,6 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.AdapterView;
+import android.view.View;
 
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -71,7 +75,7 @@ public class AddProduct extends AppCompatActivity {
     public void addProd(){
         String name = ((EditText)findViewById(R.id.input_product_name)).getText().toString();
         float price = Float.parseFloat(((EditText)findViewById(R.id.input_price)).getText().toString());
-        String type = ((EditText)findViewById(R.id.input_type)).getText().toString();
+        String type = ((Spinner)findViewById(R.id.product_dropdown)).getSelectedItem().toString();
         String volume = ((EditText)findViewById(R.id.input_volume)).getText().toString();
         String description = ((EditText)findViewById(R.id.input_description)).getText().toString();
 

@@ -133,7 +133,6 @@
         android:id="@+id/menu_footer"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        app:defaultNavHost="true"
         app:itemIconSize="40dp"
         app:itemIconTint="@color/menu_colors"
         app:itemPaddingTop="30dp"
