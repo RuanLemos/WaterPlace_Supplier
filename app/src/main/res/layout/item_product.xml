@@ -7,6 +7,7 @@
     tools:context=".activity.OrderDetails">
 
     <FrameLayout
+        android:id="@+id/framezinho"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="10dp"
@@ -29,45 +30,66 @@
 
     <TextView
         android:id="@+id/txt_prod_name"
-        android:layout_width="200dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="10dp"
         android:text="@string/placeholder"
         android:textColor="@color/black"
         android:textSize="16dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/framezinho"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txt_prod_desc"
-        android:layout_width="200dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="10dp"
         android:text="@string/placeholder"
         android:textSize="12dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/framezinho"
         app:layout_constraintTop_toBottomOf="@+id/txt_prod_name" />
 
     <TextView
         android:id="@+id/txt_prod_price"
         android:layout_width="105dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="170dp"
         android:text="@string/placeholder"
         android:textColor="@color/black"
         android:textSize="12dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/framezinho"
         app:layout_constraintTop_toBottomOf="@+id/txt_prod_desc" />
+
+    <ImageButton
+        android:id="@+id/btn_edit"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="5dp"
+        android:backgroundTint="@color/salmao"
+        android:src="@drawable/edit_prod"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toEndOf="@+id/txt_prod_name"
+        app:layout_constraintTop_toTopOf="@+id/framezinho"
+        app:layout_constraintBottom_toTopOf="@+id/divisor_6"/>
+
+
+    <ImageButton
+        android:id="@+id/btn_delete"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="5dp"
+        android:backgroundTint="@color/vermelho_claro"
+        android:src="@drawable/delete_prod"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toEndOf="@+id/btn_edit"
+        app:layout_constraintTop_toTopOf="@+id/framezinho"
+        app:layout_constraintBottom_toTopOf="@+id/divisor_6"/>
 
     <View
         android:id="@+id/divisor_6"
