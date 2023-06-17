@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.EditProfile">
+
+    <ImageView
+        android:id="@+id/logo_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/header_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Alterar Dados"
+        android:textColor="#0188b9"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_6" />
+
+    <EditText
+        android:id="@+id/input_nome_2"
+        android:layout_width="293dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/rounded_background"
+        android:drawablePadding="20dp"
+        android:elevation="6dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColorHint="#69b2c3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_edit" />
+
+    <TextView
+        android:id="@+id/txt_nome_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="102dp"
+        android:elevation="6dp"
+        android:text="@string/NomeEstabelecimento"
+        android:textColor="#69b2c3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_edit" />
+
+    <EditText
+        android:id="@+id/input_telefone_2"
+        android:layout_width="293dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_background"
+        android:drawablePadding="20dp"
+        android:elevation="6dp"
+        android:ems="10"
+        android:inputType="phone"
+        android:textColorHint="#69b2c3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_nome_2" />
+
+    <TextView
+        android:id="@+id/txt_telefone_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="214dp"
+        android:elevation="6dp"
+        android:text="@string/Telefone"
+        android:textColor="#69b2c3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_nome_2" />
+
+    <EditText
+        android:id="@+id/input_cnpj_3"
+        android:layout_width="293dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_background"
+        android:elevation="6dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_telefone_2" />
+
+    <TextView
+        android:id="@+id/txt_cnpj_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="240dp"
+        android:elevation="6dp"
+        android:text="@string/Cnpj"
+        android:textColor="#69b2c3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_telefone_2" />
+
+    <TextView
+        android:id="@+id/header_endereco_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="88dp"
+        android:text="@string/Endereco"
+        android:textColor="#0080ff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_cnpj_3" />
+
+    <ImageView
+        android:id="@+id/barra_2"
+        android:layout_width="293dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_endereco_2"
+        app:srcCompat="@drawable/barra" />
+
+    <EditText
+        android:id="@+id/input_rua_2"
+        android:layout_width="293dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_background"
+        android:drawablePadding="20dp"
+        android:elevation="6dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        android:textColorHint="#69b2c3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barra_2" />
+
+    <TextView
+        android:id="@+id/txt_rua_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="245dp"
+        android:elevation="6dp"
+        android:text="@string/Rua"
+        android:textColor="#69b2c3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barra_2" />
+
+    <EditText
+        android:id="@+id/input_num_2"
+        android:layout_width="293dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_background"
+        android:drawablePadding="20dp"
+        android:elevation="6dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textColorHint="#69b2c3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_rua_2" />
+
+    <TextView
+        android:id="@+id/txt_num_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="218dp"
+        android:elevation="6dp"
+        android:text="@string/Numero"
+        android:textColor="#69b2c3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_rua_2" />
+
+    <EditText
+        android:id="@+id/input_cep_2"
+        android:layout_width="293dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_background"
+        android:drawablePadding="20dp"
+        android:elevation="6dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textColorHint="#69b2c3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_num_2" />
+
+    <TextView
+        android:id="@+id/txt_cep_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="245dp"
+        android:elevation="6dp"
+        android:text="@string/CEP"
+        android:textColor="#69b2c3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_num_2" />
+
+        <Button
+            android:id="@+id/bt_edit"
+            android:layout_width="293dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#69b2c3"
+            android:text="@string/Cadastrar"
+            app:cornerRadius="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/input_cep_2" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/menu_footer"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            app:itemIconSize="40dp"
+            app:itemIconTint="@color/menu_colors"
+            app:itemPaddingTop="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_edit"
+            app:menu="@menu/menu_item">
+
+            <View
+                android:id="@+id/divisor_footer"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/line_divider" />
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import waterplace.finalproj.R;
+import waterplace.finalproj.activity.EditProfile;
 import waterplace.finalproj.activity.MainMenu;
 import waterplace.finalproj.activity.Orders;
 
@@ -17,6 +18,8 @@ public class BottomNavigationManager implements BottomNavigationView.OnNavigatio
     private Activity activity;
     public static final int action_option1 = 2131230788;
     public static final int action_option2 = 2131230789;
+
+    public static final int action_option3 = 000000000;
 
     public BottomNavigationManager(Activity activity) {
         this.activity = activity;
@@ -36,6 +39,9 @@ public class BottomNavigationManager implements BottomNavigationView.OnNavigatio
                 return true;
             case action_option2:
                 startActivity(Orders.class);
+                return true;
+            case action_option3:
+                startActivity(EditProfile.class);
                 return true;
         }
         return false;

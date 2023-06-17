@@ -71,7 +71,7 @@
         android:layout_width="60dp"
         android:layout_height="70dp"
         android:layout_marginStart="5dp"
-        android:backgroundTint="@color/salmao"
+        android:backgroundTint="#d9d9d9"
         android:src="@drawable/edit_prod"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@+id/txt_prod_name"
