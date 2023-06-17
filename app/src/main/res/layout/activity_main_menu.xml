@@ -155,6 +155,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/supplier_name" />
 
+    <View
+        android:id="@+id/divisor_14"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/line_divider"
+        android:backgroundTint="#d9d9d9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chip" />
+
+    <TextView
+        android:id="@+id/supplier_products"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="98dp"
+        android:text="Produtos"
+        android:textColor="#0087b8"
+        android:textSize="26dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divisor_14" />
+
+    <View
+        android:id="@+id/divisor_15"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/line_divider"
+        android:backgroundTint="#d9d9d9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/supplier_products" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_products"
         android:layout_width="match_parent"
@@ -163,7 +199,7 @@
         app:layout_constraintBottom_toTopOf="@+id/menu_footer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chip">
+        app:layout_constraintTop_toBottomOf="@+id/divisor_15">
 
     </androidx.recyclerview.widget.RecyclerView>
 
