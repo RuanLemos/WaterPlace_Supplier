@@ -34,6 +34,7 @@
     <string name="product_name">Nome do Produto</string>
     <string name="description">Descrição</string>
     <string name="placeholder">Placeholder</string>
+    <string name="confirmar_altera_es">Confirmar alterações</string>
 
     <string-array name="dropdown_items">
         <item>Galão</item>

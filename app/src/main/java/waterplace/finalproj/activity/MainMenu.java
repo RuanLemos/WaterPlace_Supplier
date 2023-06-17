@@ -111,6 +111,7 @@ public class MainMenu extends AppCompatActivity {
         prodRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                products.clear();
                 for (DataSnapshot prodSnapshot : snapshot.getChildren()) {
                     Product product = prodSnapshot.getValue(Product.class);
                     product.setUid(prodSnapshot.getKey());
@@ -211,7 +212,7 @@ public class MainMenu extends AppCompatActivity {
         });
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview_products);
-        ProductAdapter adapter = new ProductAdapter(products, uid);
+        ProductAdapter adapter = new ProductAdapter(products, uid, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
