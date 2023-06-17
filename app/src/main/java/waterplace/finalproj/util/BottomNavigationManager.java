@@ -19,7 +19,7 @@ public class BottomNavigationManager implements BottomNavigationView.OnNavigatio
     public static final int action_option1 = 2131230788;
     public static final int action_option2 = 2131230789;
 
-    public static final int action_option3 = 000000000;
+    public static final int action_option3 = 2131230790;
 
     public BottomNavigationManager(Activity activity) {
         this.activity = activity;
@@ -32,7 +32,7 @@ public class BottomNavigationManager implements BottomNavigationView.OnNavigatio
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         System.out.println(item.getItemId());
-        System.out.println(action_option1);
+        System.out.println(action_option3);
         switch (item.getItemId()) {
             case action_option1:
                 startActivity(MainMenu.class);
