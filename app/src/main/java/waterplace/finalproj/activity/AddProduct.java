@@ -150,6 +150,7 @@ public class AddProduct extends AppCompatActivity {
         if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
             selectedImageUri = data.getData();
             ImageView imageView = (ImageView)findViewById(R.id.image_product);
+            System.out.println(selectedImageUri);
             imageView.setImageURI(selectedImageUri);
         }
     }

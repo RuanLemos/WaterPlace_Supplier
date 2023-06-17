@@ -1,6 +1,8 @@
 package waterplace.finalproj.adapter;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,16 +23,19 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 import waterplace.finalproj.R;
+import waterplace.finalproj.activity.EditProduct;
 import waterplace.finalproj.model.Product;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
     private List<Product> productList;
     private String supplierUid;
+    private Context context;
 
-    public ProductAdapter(List<Product> productList, String supplierUid) {
+    public ProductAdapter(List<Product> productList, String supplierUid, Context context) {
         this.productList = productList;
         this.supplierUid = supplierUid;
+        this.context = context;
     }
 
     @NonNull
@@ -53,22 +58,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         DecimalFormat pf = new DecimalFormat("0.00");
         holder.price.setText("R$ " + pf.format(product.getPrice()));
         holder.desc.setText(product.getDesc());
-        holder.btnDelete.setOnClickListener(view -> {
-            FirebaseDatabase.getInstance().getReference("Suppliers").child(supplierUid).child("Products").child(product.getUid()).removeValue();
-
-            storageReference.delete();
-
-            // Faça a lógica para excluir o produto do banco de dados
-            // Por exemplo, você pode chamar um método de exclusão na sua camada de dados ou fazer uma requisição para a API
-
-            // Após excluir o produto, remova-o da lista de produtos
-            productList.remove(position);
-
-            // Notifique o adapter que o item foi removido na posição especificada
-            notifyItemRemoved(position);
-        });
+        holder.btnDelete.setOnClickListener(view -> deleteProd(position, storageReference, product));
+        holder.btnEdit.setOnClickListener(view -> goEdit(context, product, supplierUid));
     }
-
 
     @Override
     public int getItemCount() {
@@ -80,6 +72,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         TextView price;
         TextView desc;
         ImageView img;
+        ImageButton btnEdit;
         ImageButton btnDelete;
 
         public ProductViewHolder(@NonNull View itemView) {
@@ -88,7 +81,26 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             price = itemView.findViewById(R.id.txt_prod_price);
             desc = itemView.findViewById(R.id.txt_prod_desc);
             img = itemView.findViewById(R.id.img_prod);
+            btnEdit = itemView.findViewById(R.id.btn_edit);
             btnDelete = itemView.findViewById(R.id.btn_delete);
         }
+    }
+
+    private void deleteProd(int position, StorageReference storageReference, Product product) {
+        FirebaseDatabase.getInstance().getReference("Suppliers").child(supplierUid).child("Products").child(product.getUid()).removeValue();
+
+        storageReference.delete();
+
+        productList.remove(position);
+
+
+        notifyItemRemoved(position);
+    }
+
+    private void goEdit(Context context, Product product, String supId) {
+        Intent i = new Intent(context, EditProduct.class);
+        i.putExtra("supId", supId);
+        i.putExtra("product", product);
+        context.startActivity(i);
     }
 }
