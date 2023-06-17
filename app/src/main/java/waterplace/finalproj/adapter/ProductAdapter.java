@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -50,6 +53,20 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         DecimalFormat pf = new DecimalFormat("0.00");
         holder.price.setText("R$ " + pf.format(product.getPrice()));
         holder.desc.setText(product.getDesc());
+        holder.btnDelete.setOnClickListener(view -> {
+            FirebaseDatabase.getInstance().getReference("Suppliers").child(supplierUid).child("Products").child(product.getUid()).removeValue();
+
+            storageReference.delete();
+
+            // Faça a lógica para excluir o produto do banco de dados
+            // Por exemplo, você pode chamar um método de exclusão na sua camada de dados ou fazer uma requisição para a API
+
+            // Após excluir o produto, remova-o da lista de produtos
+            productList.remove(position);
+
+            // Notifique o adapter que o item foi removido na posição especificada
+            notifyItemRemoved(position);
+        });
     }
 
 
@@ -63,6 +80,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         TextView price;
         TextView desc;
         ImageView img;
+        ImageButton btnDelete;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -70,6 +88,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             price = itemView.findViewById(R.id.txt_prod_price);
             desc = itemView.findViewById(R.id.txt_prod_desc);
             img = itemView.findViewById(R.id.img_prod);
+            btnDelete = itemView.findViewById(R.id.btn_delete);
         }
     }
 }
