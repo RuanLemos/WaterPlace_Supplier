@@ -28,10 +28,17 @@
     <string name="ligacoes_habilitadas">Ligações habilitadas</string>
     <string name="ligacoes_desabilitadas">Ligações desabilitadas</string>
     <string name="volume">Volume</string>
-    <string name="type">Type</string>
-    <string name="add_product">Add Product</string>
-    <string name="price">Price</string>
-    <string name="product_name">Product Name</string>
-    <string name="description">Description</string>
+    <string name="type">Tipo</string>
+    <string name="add_product">Adicionar Produto</string>
+    <string name="price">Preço</string>
+    <string name="product_name">Nome do Produto</string>
+    <string name="description">Descrição</string>
     <string name="placeholder">Placeholder</string>
+
+    <string-array name="dropdown_items">
+        <item>Galão</item>
+        <item>Copinho</item>
+        <item>Garrafa</item>
+        <item>Outro</item>
+    </string-array>
 </resources>

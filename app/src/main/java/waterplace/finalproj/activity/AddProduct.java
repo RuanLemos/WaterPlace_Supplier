@@ -12,6 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.AdapterView;
+import android.view.View;
 
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -44,6 +48,17 @@ public class AddProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_add_product);
+
+        Spinner productDropdown = findViewById(R.id.product_dropdown);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.dropdown_items,
+                android.R.layout.simple_spinner_item
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        productDropdown.setAdapter(adapter);
+
         Intent intent = getIntent();
         supplierUid = intent.getStringExtra("uid");
         database = FirebaseDatabase.getInstance();
@@ -73,7 +88,7 @@ public class AddProduct extends AppCompatActivity {
     public void addProd(){
         String name = ((EditText)findViewById(R.id.input_product_name)).getText().toString();
         float price = Float.parseFloat(((EditText)findViewById(R.id.input_price)).getText().toString());
-        String type = ((EditText)findViewById(R.id.input_type)).getText().toString();
+        String type = ((Spinner)findViewById(R.id.product_dropdown)).getSelectedItem().toString();
         String volume = ((EditText)findViewById(R.id.input_volume)).getText().toString();
         String description = ((EditText)findViewById(R.id.input_description)).getText().toString();
 
