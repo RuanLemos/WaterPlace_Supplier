@@ -55,6 +55,7 @@ public class OrderDetails extends AppCompatActivity {
     private TextView totalValue;
     private TextView deliveryAddress;
     private Intent i;
+    private ImageButton back_arrow;
     private Button btn_confirm;
     private Button btn_reject;
     private TextView delivery;
@@ -74,6 +75,8 @@ public class OrderDetails extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_order_details);
+
+        back_arrow.setOnClickListener(v -> goBack());
 
         i = getIntent();
 
@@ -96,6 +99,16 @@ public class OrderDetails extends AppCompatActivity {
         delivery = findViewById(R.id.del_type_warning);
 
         updateUI();
+    }
+
+    @Override
+    public void onBackPressed() {
+        goBack();
+    }
+
+    public void goBack(){
+        Intent i = new Intent(this, Orders.class);
+        startActivity(i);
     }
 
     @SuppressLint("SetTextI18n")

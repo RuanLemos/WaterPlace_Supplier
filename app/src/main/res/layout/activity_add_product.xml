@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/header_add"
+        android:id="@+id/header_edit_prod"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -43,7 +43,7 @@
         android:backgroundTint="#d9d9d9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_add" />
+        app:layout_constraintTop_toBottomOf="@+id/header_edit_prod" />
 
     <EditText
         android:id="@+id/input_product_name"

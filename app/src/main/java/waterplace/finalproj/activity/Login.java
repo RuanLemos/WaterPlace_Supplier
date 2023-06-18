@@ -67,6 +67,11 @@ public class Login extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        goBack();
+    }
+
     public void goBack(){
         Intent i = new Intent(this,MainActivity.class);
         startActivity(i);
