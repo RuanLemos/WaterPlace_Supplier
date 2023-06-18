@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/action_option1"
         android:title=""
+        android:id="@+id/action_option1"
         android:icon="@drawable/house" />
     <item
-        android:id="@+id/action_option2"
         android:title=""
+        android:id="@+id/action_option2"
         android:icon="@drawable/list" />
     <item
-        android:id="@+id/action_option3"
         android:title=""
+        android:id="@+id/action_option3"
         android:icon="@drawable/gear" />
 </menu>
