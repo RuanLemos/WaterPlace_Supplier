@@ -35,6 +35,7 @@ import com.google.firebase.storage.StorageMetadata;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,8 +75,9 @@ public class MainMenu extends AppCompatActivity {
                     supplier = snapshot.getValue(Supplier.class);
                     ratingValue = findViewById(R.id.nota);
                     rating = findViewById(R.id.ratingBar);
+                    DecimalFormat df = new DecimalFormat("0.0");
                     if (supplier.getRating() != 0.0) {
-                        ratingValue.setText(String.valueOf(supplier.getRating()));
+                        ratingValue.setText(df.format(supplier.getRating()));
                         rating.setRating((float) supplier.getRating());
                     } else {
                         ratingValue.setText("Sem avaliações.");
