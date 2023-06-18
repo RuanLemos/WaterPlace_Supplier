@@ -11,8 +11,8 @@ public class Supplier {
     private String phone;
     private List<Product> products;
     private Address address;
-
     private String uid;
+    private double rating;
 
     // Cria um construtor com o padrão singleton
     private static Supplier instance;
@@ -82,4 +82,12 @@ public class Supplier {
     }
 
     public Address getAddress() { return this.address; }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
 }

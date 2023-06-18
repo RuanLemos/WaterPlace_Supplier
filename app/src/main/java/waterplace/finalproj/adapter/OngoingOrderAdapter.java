@@ -60,16 +60,18 @@ public class OngoingOrderAdapter extends RecyclerView.Adapter<OngoingOrderAdapte
 
         if (order.getStatus().equals("Confirmado")) {
             if (order.isScheduled()) {
-                holder.orderStatus.setText(order.getOrderDateTime());
+                holder.orderStatus.setText(order.getDeliveryDateTime());
             } else {
                 holder.orderStatus.setText("Aguardando entrega");
             }
-        } else if (order.getStatus().equals("Aguardando Confirmação")){
+        } else if (order.getStatus().equals("Aguardando\nConfirmação")){
             holder.orderStatus.setText("Aguardando\nConfirmação");
             if (order.isScheduled()) {
-                holder.deliveryDesc.setText(order.getOrderDateTime());
+                holder.deliveryDesc.setText(order.getDeliveryDateTime());
             }
         } else {
+            //System.out.println(order.getOrderId());
+            //System.out.println(order.getStatus());
             holder.orderStatus.setText(order.getStatus());
         }
 

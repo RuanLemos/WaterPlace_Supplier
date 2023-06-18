@@ -15,6 +15,7 @@ import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +51,8 @@ public class MainMenu extends AppCompatActivity {
     private List<Product> products = new ArrayList<>();
     private DatabaseReference supplierRef;
     private BottomNavigationManager bottomNavigationManager;
+    private TextView ratingValue;
+    private RatingBar rating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +72,16 @@ public class MainMenu extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     supplier = snapshot.getValue(Supplier.class);
+                    ratingValue = findViewById(R.id.nota);
+                    rating = findViewById(R.id.ratingBar);
+                    if (supplier.getRating() != 0.0) {
+                        ratingValue.setText(String.valueOf(supplier.getRating()));
+                        rating.setRating((float) supplier.getRating());
+                    } else {
+                        ratingValue.setText("Sem avaliações.");
+                        rating.setVisibility(View.GONE);
+                    }
+
                     makeProdList();
                     setCapaImage();
                 }
