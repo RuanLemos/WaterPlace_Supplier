@@ -57,6 +57,8 @@ public class Orders extends AppCompatActivity {
         supRef.child(supUid).child("Orders").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                onGoingOrders.clear();
+                finishedOrders.clear();
                 for (DataSnapshot orderSnapshot : snapshot.getChildren()) {
                     order = orderSnapshot.getValue(Order.class);
                     order.setOrderId(orderSnapshot.getKey());

@@ -99,6 +99,7 @@ public class EditProduct extends AppCompatActivity {
         // Load product image from storage and set to ImageView
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
+        System.out.println(supplierUid);
         StorageReference imageRef = storageRef.child(supplierUid + "/products/" + product.getUid());
         Glide.with(productImageView.getContext()).load(imageRef).into(productImageView);
 
@@ -121,6 +122,7 @@ public class EditProduct extends AppCompatActivity {
         supRef.child(supplierUid).child("Products").child(product.getUid()).setValue(product);
 
         if (selectedImageUri != null) {
+            System.out.println("huh");
             UploadDeImagem(selectedImageUri);
         } else {
             goMenu();
@@ -134,10 +136,12 @@ public class EditProduct extends AppCompatActivity {
         StorageReference storageRef = storage.getReference();
 
         String uid = supplier.getUid();
-
-        StorageReference imageRef = storageRef.child(uid + "/products/" + product.getUid());
+        System.out.println(supplierUid);
+        System.out.println(product.getUid());
+        StorageReference imageRef = storageRef.child(supplierUid + "/products/" + product.getUid());
         UploadTask uploadTask = imageRef.putFile(selectedImageUri);
-
+        System.out.println("aaaaaa");
+        System.out.println(selectedImageUri);
         // Register observers to listen for when the download is done or if it fails
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
@@ -147,6 +151,7 @@ public class EditProduct extends AppCompatActivity {
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                System.out.println("awawawa");
                 goMenu();
             }
         });
@@ -167,6 +172,7 @@ public class EditProduct extends AppCompatActivity {
             selectedImageUri = data.getData();
             ImageView imageView = findViewById(R.id.image_product);
             imageView.setImageURI(selectedImageUri);
+            System.out.println(selectedImageUri);
         }
     }
 
