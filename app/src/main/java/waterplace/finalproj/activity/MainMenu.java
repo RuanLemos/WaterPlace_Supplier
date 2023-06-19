@@ -145,6 +145,7 @@ public class MainMenu extends AppCompatActivity {
     private void goToAddProduct() {
         Intent i = new Intent(this, AddProduct.class);
         i.putExtra("uid", uid);
+        System.out.println("Ô CARAIII " + uid);
         startActivity(i);
     }
 

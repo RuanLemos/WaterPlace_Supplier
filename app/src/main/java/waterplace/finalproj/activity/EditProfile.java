@@ -18,11 +18,14 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import waterplace.finalproj.R;
 import waterplace.finalproj.model.Address;
+import waterplace.finalproj.model.Product;
 import waterplace.finalproj.model.Supplier;
 import waterplace.finalproj.util.AddressUtil;
 import waterplace.finalproj.util.BottomNavigationManager;
@@ -129,19 +132,24 @@ public class EditProfile extends AppCompatActivity {
             }
 
             user.setAddress(null);
+            DatabaseReference supRef = usersRef.child(uid);
+            supRef.child("name").setValue(user.getName());
+            supRef.child("cnpj").setValue(user.getCnpj());
+            supRef.child("phone").setValue(user.getPhone());
+            usersRef.child(uid).child("Address").setValue(address);
 
             // Salva o usuário com o UID como identificador do documento
-            usersRef.child(uid).setValue(user)
-                    .addOnCompleteListener(saveTask -> {
-                        if (saveTask.isSuccessful()) {
-                            usersRef.child(uid).child("Address").setValue(address);
-                            System.out.println("ENTRANDO NA TOCA DO DIABO");
-                            Toast.makeText(this, "Dados alterados com sucesso!", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Exception e = saveTask.getException();
-                            Toast.makeText(this, "bugo!", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+//            usersRef.child(uid).setValue(user)
+//                    .addOnCompleteListener(saveTask -> {
+//                        if (saveTask.isSuccessful()) {
+//
+//                            System.out.println("ENTRANDO NA TOCA DO DIABO");
+//                            Toast.makeText(this, "Dados alterados com sucesso!", Toast.LENGTH_SHORT).show();
+//                        } else {
+//                            Exception e = saveTask.getException();
+//                            Toast.makeText(this, "bugo!", Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
         }
     }
 }
