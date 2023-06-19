@@ -31,6 +31,11 @@ public class Confirm extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        goBack();
+    }
+
     public void goBack(){
         Intent i = new Intent(this, Recover.class);
         startActivity(i);

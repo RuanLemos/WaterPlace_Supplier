@@ -18,7 +18,6 @@ import waterplace.finalproj.R;
 public class Recover extends AppCompatActivity {
 
     private Button bt_send;
-
     private ImageButton bt;
     private FirebaseAuth firebaseAuth;
 
@@ -46,6 +45,12 @@ public class Recover extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        goBack();
+    }
+
 
     public void sendEmail() {
         String email = ((android.widget.EditText) findViewById(R.id.input_email_2)).getText().toString();

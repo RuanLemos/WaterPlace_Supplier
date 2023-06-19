@@ -97,6 +97,11 @@ public class MainMenu extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        //Desabilita a seta
+    }
+
     private void setCapaImage() {
         ImageView img_capa = findViewById(R.id.image_capa);
         ProgressBar progressBar = findViewById(R.id.progressBar);

@@ -11,6 +11,7 @@ import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -32,6 +33,7 @@ import waterplace.finalproj.model.Supplier;
 public class EditProduct extends AppCompatActivity {
 
     private String supplierUid;
+    private ImageButton back_arrow;
     private Button btn_edit;
     private Button btn_edit_image;
     private Supplier supplier = Supplier.getInstance();
@@ -45,6 +47,8 @@ public class EditProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_edit_product);
+
+        back_arrow.setOnClickListener(v -> goBack());
 
         Intent intent = getIntent();
         supplierUid = intent.getStringExtra("supId");
@@ -71,6 +75,16 @@ public class EditProduct extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        goBack();
+    }
+
+    public void goBack(){
+        Intent i = new Intent(this, MainMenu.class);
+        startActivity(i);
     }
 
     private void populateProductFields() {

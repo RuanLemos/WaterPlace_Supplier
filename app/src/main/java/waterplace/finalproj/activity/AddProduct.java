@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ArrayAdapter;
@@ -37,6 +38,7 @@ public class AddProduct extends AppCompatActivity {
     private String supplierUid;
     private Button btn_add;
     private Button btn_add_image;
+    private ImageButton back_arrow;
     private Supplier supplier = Supplier.getInstance();
     private List<Product> products = supplier.getProducts();
     private FirebaseDatabase database;
@@ -48,6 +50,8 @@ public class AddProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_add_product);
+
+        back_arrow.setOnClickListener(v -> goBack());
 
         Spinner productDropdown = findViewById(R.id.product_dropdown);
 
@@ -78,6 +82,16 @@ public class AddProduct extends AppCompatActivity {
                 goToChangeCover();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        goBack();
+    }
+
+    public void goBack(){
+        Intent i = new Intent(this, MainMenu.class);
+        startActivity(i);
     }
 
     public void goMenu() {
