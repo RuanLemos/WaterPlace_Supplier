@@ -6,26 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".activity.Orders">
 
-    <ImageButton
-        android:id="@+id/back_arrow_5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="350dp"
-        android:backgroundTint="@color/white"
-        android:scaleType="fitStart"
-        android:src="@drawable/back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/header_pedidos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="100dp"
         android:text="Suas Entregas"
         android:textColor="#0087b8"
         android:textSize="26dp"
