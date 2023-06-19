@@ -106,7 +106,7 @@ public class AddProduct extends AppCompatActivity {
         supRef.child(supplierUid).child("Products").child(prodUid).setValue(product);
 
         UploadDeImagem(selectedImageUri);
-
+        System.out.println("blum");
         products.add(product);
         supplier.setProducts(products);
 
@@ -116,10 +116,12 @@ public class AddProduct extends AppCompatActivity {
     public void UploadDeImagem(Uri selectedImageUri) {
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
-
+        System.out.println("blim");
         String uid = supplier.getUid();
-
-        StorageReference imageRef = storageRef.child(uid+"/products/"+prodUid);
+        System.out.println("NAAAAAAAAAAAAAAAAAAAAOOOOO");
+        System.out.println(supplierUid);
+        System.out.println(prodUid);
+        StorageReference imageRef = storageRef.child(supplierUid+"/products/"+prodUid);
         UploadTask uploadTask = imageRef.putFile(selectedImageUri);
 
         // Register observers to listen for when the download is done or if it fails
@@ -152,6 +154,7 @@ public class AddProduct extends AppCompatActivity {
             ImageView imageView = (ImageView)findViewById(R.id.image_product);
             System.out.println(selectedImageUri);
             imageView.setImageURI(selectedImageUri);
+            System.out.println("bla");
         }
     }
 }
